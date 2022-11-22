@@ -1,1 +1,1 @@
-console.log("Hello");
+(()=>{const o=(toDoArray=[1,2],{toDoArray});console.log(o.toDoArray)})();
