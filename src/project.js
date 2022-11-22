@@ -1,7 +1,13 @@
-const project = function () {
+const project = function (title) {
   toDoArray = [];
 
-  return { toDoArray };
+  showToDos(){
+      toDoArray.forEach(toDo =>{
+        DOM.display(toDo)
+      })
+  }
+
+  return { title, toDoArray };
 };
 
 export { project };

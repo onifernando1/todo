@@ -11,10 +11,8 @@ const toDo = function (title, description, dueDate, priority) {
         this[elementToChange] = newValue
     }
 
-
-
-
-
-
-  return { title, description, dueDate, priority, toDoStatus };
+  return { title, description, dueDate, priority, toDoStatus, create, change };
 };
+
+export { toDo }
+
