@@ -1,13 +1,15 @@
-const project = function (title) {
-  toDoArray = [];
+import { DOM } from "./dom.js";
 
-  showToDos(){
-      toDoArray.forEach(toDo =>{
-        DOM.display(toDo)
-      })
-  }
+const project = function (title) {
+  const toDoArray = [];
+
+  const showToDos = () => {
+    toDoArray.forEach((toDo) => {
+      DomStuff.displaytoDo(toDo);
+    });
+  };
 
   return { title, toDoArray };
 };
 
-export { project };
+export { Project, showToDos };

@@ -1,18 +1,28 @@
-const toDo = function (title, description, dueDate, priority) {
+const ToDo = function (title, description, dueDate, priority) {
+  const toDoStatus = "incomplete";
 
-    toDoStatus = incomplete
+  const create = (title, description, dueDate, priority) => {
+    newToDo = toDo(title, description, dueDate, priority);
+  };
 
-    create(title, description, dueDate, priority){
-        newToDo = toDo(title, description, dueDate, priority)
-    }
+  const change = (elementToChange, newValue) => {
+    this[elementToChange] = newValue;
+  };
 
+  const changeTDS = () => {
+    toDostatus = completet;
+  };
 
-    change(elementToChange, newValue){
-        this[elementToChange] = newValue
-    }
-
-  return { title, description, dueDate, priority, toDoStatus, create, change };
+  return {
+    title,
+    description,
+    dueDate,
+    priority,
+    toDoStatus,
+    create,
+    change,
+    toDoStatus,
+  };
 };
 
-export { toDo }
-
+export { ToDo };

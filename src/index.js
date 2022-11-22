@@ -1,8 +1,7 @@
-const Project = function () {
-  toDoArray = [1, 2];
+import { DomStuff } from "./dom.js";
+import { ToDo } from "./todo.js"; // todelete
 
-  return { toDoArray };
-};
-
-const project1 = Project();
-console.log(project1.toDoArray);
+project = Project("ABC");
+toDo = ToDo("abc", "abc", "abc", "abc");
+project.toDoArray.push(toDo);
+project.showToDos;

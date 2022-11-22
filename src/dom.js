@@ -1,7 +1,7 @@
-const DOM (() => {
+const DomStuff (() => {
 
 
-    const displaytoDo(toDo) = function(){
+    const displaytoDo(toDo) = function() => {
         let newToDoDiv = document.createElement("div")
 
         _displayTitle(toDo,newToDoDiv)
@@ -14,14 +14,14 @@ const DOM (() => {
 
     }
 
-    const _displayTitle = (toDo,newToDoDiv ) {
+    const _displayTitle = (toDo,newToDoDiv ) => {
         let newToDoTitle = createElement("div")
         newToDoTitle.innerHTML = toDo.title
         newToDoTitle.className = "todo-title"
         newToDoDiv.appendChild(newToDoTitle)
     }
 
-    const _displayDescription = (toDo,newToDoDiv){
+    const _displayDescription = (toDo,newToDoDiv)=> {
 
         let newToDoDescription = createElement("div")
         newToDoDescription.innerHTML = toDo.description
@@ -29,7 +29,7 @@ const DOM (() => {
         newToDoDiv.appendChild(newToDoDescription)
     }
     
-    const _displayDueDate = (toDo,newToDoDiv){
+    const _displayDueDate = (toDo,newToDoDiv)=> {
 
         let newToDoDueDate = createElement("div")
         newToDoDueDate.innerHTML = toDo.dueDate
@@ -39,7 +39,7 @@ const DOM (() => {
     }
 
       
-    const _displayPriority = (toDo,newToDoDiv){
+    const _displayPriority = (toDo,newToDoDiv)=> {
 
          
         let newToDoPriority = createElement("div")
@@ -49,7 +49,9 @@ const DOM (() => {
     }
 
     
-    return { displaytoDo() }
+    return { displaytoDo }
 
 
 })()
+
+export { DomStuff }
