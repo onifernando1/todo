@@ -6,9 +6,10 @@ const toDo = function (title, description, dueDate, priority) {
         newToDo = toDo(title, description, dueDate, priority)
     }
 
-    destroy(){}
 
-    change(){}
+    change(elementToChange, newValue){
+        this[elementToChange] = newValue
+    }
 
 
 
