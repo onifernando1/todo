@@ -1,3 +1,5 @@
+import { create } from "file-entry-cache";
+
 const DomStuff = (() => {
   const _displayTitle = (toDo, newToDoDiv) => {
     const newToDoTitle = document.createElement("div");
@@ -27,21 +29,34 @@ const DomStuff = (() => {
     newToDoDiv.appendChild(newToDoPriority);
   };
 
-  const displayProject = (project) => {
-    // const projectsContainer = document.getElementById("projects-container");
-    // const createProjectsDiv = document.createElement("div");
-    // createProjectsDiv.className = "inner-projects-container";
+  const _displayIndividualProject = (project) => {
+    project.forEach((project) => {
+      const projectsContainer = document.getElementById("projects-container");
+      const newProjectContainer = document.createElement("div");
+      newProjectContainer.className = "individual-project-container";
+      newProjectContainer.innerHTML = project.title;
+      projectsContainer.appendChild(newProjectContainer);
+    });
   };
 
-  const removeAllProjects = () => {
+  const _removeAllProjects = () => {
     const projectsContainer = document.getElementById("projects-container");
+    while (projectsContainer.firstChild) {
+      projectsContainer.removeChild(projectsContainer.lastChild);
+    }
   };
 
-  const createProjectContainer = () => {
+  const _createProjectContainer = () => {
     const projectsContainer = document.getElementById("projects-container");
     const createProjectsDiv = document.createElement("div");
     createProjectsDiv.className = "inner-projects-container";
     projectsContainer.appendChild(createProjectsDiv);
+  };
+
+  const displayAllProjects = () => {
+    _removeAllProjects();
+    _createProjectContainer();
+    _displayIndividualProject();
   };
 
   const displaytoDo = (toDo) => {
@@ -59,7 +74,7 @@ const DomStuff = (() => {
     _displayPriority(toDo, newToDoDiv);
   };
 
-  return { displaytoDo };
+  return { displaytoDo, displayAllProjects };
 })();
 
 export { DomStuff };
