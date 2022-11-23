@@ -8,7 +8,12 @@ const ProjectManager = function () {
     DomStuff.displayAllProjects(projectArray);
   };
 
-  const create = function () {};
+  const create = function () {
+    const newProjectForm = document.getElementById("new-project-form");
+    newProjectForm.addEventListener("submit", (event) => {
+      event.preventDefault;
+    });
+  };
 };
 
 export { ProjectManager, showAllProjects };
