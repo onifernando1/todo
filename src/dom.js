@@ -27,8 +27,8 @@ const DomStuff = (() => {
     newToDoDiv.appendChild(newToDoPriority);
   };
 
-  const _displayIndividualProject = (project) => {
-    project.forEach((project) => {
+  const _displayIndividualProject = (projectArray) => {
+    projectArray.forEach((project) => {
       const projectsContainer = document.getElementById("projects-container");
       const newProjectContainer = document.createElement("div");
       newProjectContainer.className = "individual-project-container";
@@ -51,10 +51,10 @@ const DomStuff = (() => {
     projectsContainer.appendChild(createProjectsDiv);
   };
 
-  const displayAllProjects = () => {
+  const displayAllProjects = (projectArray) => {
     _removeAllProjects();
     _createProjectContainer();
-    _displayIndividualProject();
+    _displayIndividualProject(projectArray);
   };
 
   const displaytoDo = (toDo) => {

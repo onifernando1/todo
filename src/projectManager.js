@@ -4,7 +4,6 @@ const ProjectManager = (() => {
   const projectArray = [];
 
   const showAllProjects = () => {
-    DomStuff.removeAllProjects();
     DomStuff.displayAllProjects(projectArray);
   };
 
