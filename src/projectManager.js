@@ -1,19 +1,14 @@
 import { DomStuff } from "./dom";
 
-const ProjectManager = function () {
+const ProjectManager = (() => {
   const projectArray = [];
 
-  const showAllProjects = function () {
-    DomStuff.removeAllProjects;
+  const showAllProjects = () => {
+    DomStuff.removeAllProjects();
     DomStuff.displayAllProjects(projectArray);
   };
 
-  const create = function () {
-    const newProjectForm = document.getElementById("new-project-form");
-    newProjectForm.addEventListener("submit", (event) => {
-      event.preventDefault;
-    });
-  };
-};
+  return { showAllProjects, projectArray };
+})();
 
-export { ProjectManager, showAllProjects };
+export { ProjectManager };
