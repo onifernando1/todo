@@ -4,12 +4,11 @@ const ProjectManager = function () {
   const projectArray = [];
 
   const showAllProjects = function () {
-    projectArray.forEach((project) => {
-      DomStuff.removeAllProjects;
-      DomStuff.createProjectContainer;
-      DomStuff.displayProject(project);
-    });
+    DomStuff.removeAllProjects;
+    DomStuff.displayAllProjects(projectArray);
   };
+
+  const create = function () {};
 };
 
-export { ProjectManager };
+export { ProjectManager, showAllProjects };

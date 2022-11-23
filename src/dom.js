@@ -1,5 +1,3 @@
-import { create } from "file-entry-cache";
-
 const DomStuff = (() => {
   const _displayTitle = (toDo, newToDoDiv) => {
     const newToDoTitle = document.createElement("div");
