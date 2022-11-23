@@ -27,6 +27,23 @@ const DomStuff = (() => {
     newToDoDiv.appendChild(newToDoPriority);
   };
 
+  const displayProject = (project) => {
+    // const projectsContainer = document.getElementById("projects-container");
+    // const createProjectsDiv = document.createElement("div");
+    // createProjectsDiv.className = "inner-projects-container";
+  };
+
+  const removeAllProjects = () => {
+    const projectsContainer = document.getElementById("projects-container");
+  };
+
+  const createProjectContainer = () => {
+    const projectsContainer = document.getElementById("projects-container");
+    const createProjectsDiv = document.createElement("div");
+    createProjectsDiv.className = "inner-projects-container";
+    projectsContainer.appendChild(createProjectsDiv);
+  };
+
   const displaytoDo = (toDo) => {
     const content = document.getElementById("content");
     const newToDoDiv = document.createElement("div");
