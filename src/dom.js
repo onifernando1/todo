@@ -29,11 +29,15 @@ const DomStuff = (() => {
 
   const _displayIndividualProject = (projectArray) => {
     projectArray.forEach((project) => {
-      const projectsContainer = document.getElementById("projects-container");
+      const innerProjectsContainer = document.getElementById(
+        "inner-projects-container"
+      );
       const newProjectContainer = document.createElement("div");
       newProjectContainer.className = "individual-project-container";
       newProjectContainer.innerHTML = project.title;
-      projectsContainer.appendChild(newProjectContainer);
+      console.log(newProjectContainer);
+      console.log(innerProjectsContainer);
+      innerProjectsContainer.appendChild(newProjectContainer);
     });
   };
 
@@ -47,7 +51,7 @@ const DomStuff = (() => {
   const _createProjectContainer = () => {
     const projectsContainer = document.getElementById("projects-container");
     const createProjectsDiv = document.createElement("div");
-    createProjectsDiv.className = "inner-projects-container";
+    createProjectsDiv.id = "inner-projects-container";
     projectsContainer.appendChild(createProjectsDiv);
   };
 
