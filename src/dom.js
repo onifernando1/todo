@@ -1,57 +1,48 @@
-const DomStuff (() => {
+const DomStuff = (() => {
+  const _displayTitle = (toDo, newToDoDiv) => {
+    const newToDoTitle = document.createElement("div");
+    newToDoTitle.innerHTML = toDo.title;
+    newToDoTitle.className = "todo-title";
+    newToDoDiv.appendChild(newToDoTitle);
+  };
 
+  const _displayDescription = (toDo, newToDoDiv) => {
+    const newToDoDescription = document.createElement("div");
+    newToDoDescription.innerHTML = toDo.description;
+    newToDoDescription.className = "todo-description";
+    newToDoDiv.appendChild(newToDoDescription);
+  };
 
-    const displaytoDo(toDo) = function() => {
-        let newToDoDiv = document.createElement("div")
+  const _displayDueDate = (toDo, newToDoDiv) => {
+    const newToDoDueDate = document.createElement("div");
+    newToDoDueDate.innerHTML = toDo.dueDate;
+    newToDoDueDate.className = "todo-duedate";
+    newToDoDiv.appendChild(newToDoDueDate);
+  };
 
-        _displayTitle(toDo,newToDoDiv)
+  const _displayPriority = (toDo, newToDoDiv) => {
+    const newToDoPriority = document.createElement("div");
+    newToDoPriority.innerHTML = toDo.priority;
+    newToDoPriority.className = "todo-priority";
+    newToDoDiv.appendChild(newToDoPriority);
+  };
 
-        _displayDescription(toDo,newToDoDiv)
+  const displaytoDo = (toDo) => {
+    const content = document.getElementById("content");
+    const newToDoDiv = document.createElement("div");
 
-        _displayDueDate(toDo,newToDoDiv)
+    content.appendChild(newToDoDiv);
 
-        _displayPriority(toDo,newToDoDiv)
+    _displayTitle(toDo, newToDoDiv);
 
-    }
+    _displayDescription(toDo, newToDoDiv);
 
-    const _displayTitle = (toDo,newToDoDiv ) => {
-        let newToDoTitle = createElement("div")
-        newToDoTitle.innerHTML = toDo.title
-        newToDoTitle.className = "todo-title"
-        newToDoDiv.appendChild(newToDoTitle)
-    }
+    _displayDueDate(toDo, newToDoDiv);
 
-    const _displayDescription = (toDo,newToDoDiv)=> {
+    _displayPriority(toDo, newToDoDiv);
+  };
 
-        let newToDoDescription = createElement("div")
-        newToDoDescription.innerHTML = toDo.description
-        newToDoDescription.className = "todo-description"
-        newToDoDiv.appendChild(newToDoDescription)
-    }
-    
-    const _displayDueDate = (toDo,newToDoDiv)=> {
+  return { displaytoDo };
+})();
 
-        let newToDoDueDate = createElement("div")
-        newToDoDueDate.innerHTML = toDo.dueDate
-        newToDoDueDate.className = "todo-duedate"
-        newToDoDiv.appendChild(newToDoDueDate)
-
-    }
-
-      
-    const _displayPriority = (toDo,newToDoDiv)=> {
-
-         
-        let newToDoPriority = createElement("div")
-        newToDoPriority.innerHTML = toDo.priority
-        newToDoPriority.className = "todo-priority"
-        newToDoDiv.appendChild(newToDoPriority)
-    }
-
-    
-    return { displaytoDo }
-
-
-})()
-
-export { DomStuff }
+export { DomStuff };

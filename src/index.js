@@ -1,7 +1,7 @@
-import { DomStuff } from "./dom.js";
-import { ToDo } from "./todo.js"; // todelete
+import { ToDo } from "./todo"; // todelete
+import { Project } from "./project";
 
-project = Project("ABC");
-toDo = ToDo("abc", "abc", "abc", "abc");
+const project = Project("ABC");
+const toDo = ToDo("abc", "abc", "abc", "abc");
 project.toDoArray.push(toDo);
-project.showToDos;
+project.showToDos();

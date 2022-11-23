@@ -1,6 +1,6 @@
-import { DOM } from "./dom.js";
+import { DomStuff } from "./dom";
 
-const project = function (title) {
+const Project = (title) => {
   const toDoArray = [];
 
   const showToDos = () => {
@@ -9,7 +9,7 @@ const project = function (title) {
     });
   };
 
-  return { title, toDoArray };
+  return { title, toDoArray, showToDos };
 };
 
-export { Project, showToDos };
+export { Project };
