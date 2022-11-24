@@ -71,7 +71,17 @@ const ToDoDom = (() => {
     newTodoFormContainer.appendChild(todoForm);
   };
 
-  return { newToDoForm };
+  const assignProjectId = function (projectId) {
+    const todoForm = document.getElementById("new-todo-form");
+    const hiddenProjectId = document.createElement("input");
+    hiddenProjectId.type = "hidden";
+    hiddenProjectId.id = "projectId";
+    hiddenProjectId.name = "projectId";
+    hiddenProjectId.value = projectId;
+    todoForm.appendChild(hiddenProjectId);
+  };
+
+  return { newToDoForm, assignProjectId };
 })();
 
 export { ToDoDom };

@@ -1,6 +1,7 @@
 import { DomStuff } from "./dom";
 import { ViewProject } from "./view";
 import { ToDoDom } from "./toDoDom";
+import { ToDo } from "./todo";
 
 const ProjectManager = (() => {
   const projectArray = [];
@@ -20,6 +21,9 @@ const ProjectManager = (() => {
       viewButton.addEventListener("click", () => {
         ViewProject.viewTitle(project);
         ToDoDom.newToDoForm();
+        ToDoDom.assignProjectId(project.id);
+        const todo = ToDo();
+        todo.todoListener();
       });
     });
   };
