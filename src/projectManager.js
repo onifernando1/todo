@@ -1,5 +1,5 @@
 import { DomStuff } from "./dom";
-import { View } from "./view";
+import { ViewProject } from "./view";
 
 const ProjectManager = (() => {
   const projectArray = [];
@@ -18,7 +18,7 @@ const ProjectManager = (() => {
       )[0];
       viewButton.addEventListener("click", () => {
         console.log("calledclick");
-        View.viewProject(project);
+        ViewProject.view(project);
         console.log("clicked");
       });
     });

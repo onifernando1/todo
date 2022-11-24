@@ -1,10 +1,10 @@
-const View = ((project) => {
-  const viewProject = function (project) {
+const ViewProject = ((project) => {
+  const view = function (project) {
     const ptitle = project.title;
     console.log(ptitle);
   };
 
-  return { viewProject };
+  return { view };
 })();
 
-export { View };
+export { ViewProject };
