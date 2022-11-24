@@ -71,6 +71,85 @@ const ToDoDom = (() => {
     newTodoFormContainer.appendChild(todoForm);
   };
 
+  const _createTodoContainer = function () {
+    const content = document.getElementById("content");
+    const todoContainer = document.createElement("div");
+    todoContainer.className = "todo-container";
+    content.appendChild(todoContainer);
+  };
+
+  const _deleteTodoContainer = function () {
+    const todoContainer = document.getElementsByClassName("todo-container")[0];
+    const content = document.getElementById("content");
+    if (todoContainer) {
+      content.removeChild(todoContainer);
+    }
+  };
+
+  const _showTodos = function (todoArray) {
+    const todoContainer = document.getElementsByClassName("todo-container")[0];
+
+    todoArray.forEach((todo) => {
+      _displayTitle(todo, todoContainer);
+
+      _displayDescription(todo, todoContainer);
+
+      _displayDueDate(todo, todoContainer);
+
+      _displayPriority(todo, todoContainer);
+    });
+  };
+
+  const showAllTodos = function (todoArray) {
+    console.log("called");
+    _deleteTodoContainer();
+    _createTodoContainer();
+    _showTodos(todoArray);
+  };
+
+  const _displayTitle = (toDo, newToDoDiv) => {
+    const newToDoTitle = document.createElement("div");
+    newToDoTitle.innerHTML = toDo.title;
+    newToDoTitle.className = "todo-title";
+    newToDoDiv.appendChild(newToDoTitle);
+  };
+
+  const _displayDescription = (toDo, newToDoDiv) => {
+    const newToDoDescription = document.createElement("div");
+    newToDoDescription.innerHTML = toDo.description;
+    newToDoDescription.className = "todo-description";
+    newToDoDiv.appendChild(newToDoDescription);
+  };
+
+  const _displayDueDate = (toDo, newToDoDiv) => {
+    const newToDoDueDate = document.createElement("div");
+    newToDoDueDate.innerHTML = toDo.dueDate;
+    newToDoDueDate.className = "todo-duedate";
+    newToDoDiv.appendChild(newToDoDueDate);
+  };
+
+  const _displayPriority = (toDo, newToDoDiv) => {
+    const newToDoPriority = document.createElement("div");
+    newToDoPriority.innerHTML = toDo.priority;
+    newToDoPriority.className = "todo-priority";
+    newToDoDiv.appendChild(newToDoPriority);
+  };
+
+  // const displaytoDo = (toDo) => {
+  //   const content = document.getElementById("content");
+  //   const newToDoDiv = document.createElement("div");
+
+  //   content.appendChild(newToDoDiv);
+
+  //   _displayTitle(toDo, newToDoDiv);
+
+  //   _displayDescription(toDo, newToDoDiv);
+
+  //   _displayDueDate(toDo, newToDoDiv);
+
+  //   _displayPriority(toDo, newToDoDiv);
+  // };
+
   const assignProjectId = function (projectId) {
     const todoForm = document.getElementById("new-todo-form");
     const hiddenProjectId = document.createElement("input");
@@ -81,7 +160,7 @@ const ToDoDom = (() => {
     todoForm.appendChild(hiddenProjectId);
   };
 
-  return { newToDoForm, assignProjectId };
+  return { newToDoForm, assignProjectId, showAllTodos };
 })();
 
 export { ToDoDom };

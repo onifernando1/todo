@@ -1,8 +1,9 @@
 import { ProjectManager } from "./projectManager";
+import { ViewProject } from "./view";
 
 const ToDo = function (title, description, dueDate, priority) {
   const toDoStatus = "incomplete";
-  const toDoid = 0;
+  let toDoid = 0;
   const projectId = "";
 
   const create = (title, description, dueDate, priority) => {
@@ -26,11 +27,10 @@ const ToDo = function (title, description, dueDate, priority) {
     const newTodo = ToDo(todoTitle, todoDescription, todoDueDate, todoPriority);
     newTodo.projectId = todoProjectId;
     newTodo.id = toDoid;
-    const parentProject = findProject(todoProjectId);
+    let parentProject = findProject(todoProjectId);
     parentProject.toDoArray.push(newTodo);
     console.log(parentProject);
-    console.log(newTodo);
-    console.log(parentProject.toDoArray);
+    ViewProject.viewToDos(parentProject);
   };
 
   const findProject = function (todoProjectId) {

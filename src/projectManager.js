@@ -24,6 +24,9 @@ const ProjectManager = (() => {
         ToDoDom.assignProjectId(project.id);
         const todo = ToDo();
         todo.todoListener();
+        // ToDoDom.showAllTodos(project);
+        project.showToDos();
+        ViewProject.viewToDos(project);
       });
     });
   };
