@@ -3,6 +3,7 @@ import { ProjectManager } from "./projectManager";
 
 const Project = (title) => {
   const toDoArray = [];
+  const id = "";
 
   const showToDos = () => {
     toDoArray.forEach((toDo) => {
@@ -13,7 +14,7 @@ const Project = (title) => {
   const createNewProject = function () {
     const newProjecTitle = document.getElementById("title").value;
     const newProject = Project(newProjecTitle);
-    console.log(ProjectManager.projectArray);
+    newProject.id = ProjectManager.projectId;
     ProjectManager.projectArray.push(newProject);
     ProjectManager.showAllProjects();
   };
@@ -26,7 +27,15 @@ const Project = (title) => {
     });
   };
 
-  return { title, toDoArray, showToDos, createFormListener };
+  const increaseProjectId = function () {
+    ProjectManager.projectId += 1;
+  };
+
+  const viewFormListener = function () {};
+
+  increaseProjectId();
+
+  return { title, toDoArray, showToDos, createFormListener, id };
 };
 
 export { Project };

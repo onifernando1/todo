@@ -34,9 +34,14 @@ const DomStuff = (() => {
       );
       const newProjectContainer = document.createElement("div");
       newProjectContainer.className = "individual-project-container";
-      newProjectContainer.innerHTML = project.title;
-      console.log(newProjectContainer);
-      console.log(innerProjectsContainer);
+      const projectTitle = document.createElement("div");
+      projectTitle.className = "project-title";
+      projectTitle.innerText = project.title;
+      const viewProject = document.createElement("button");
+      viewProject.className = "view-project";
+      viewProject.textContent = "View project";
+      newProjectContainer.appendChild(viewProject);
+      newProjectContainer.appendChild(projectTitle);
       innerProjectsContainer.appendChild(newProjectContainer);
     });
   };
