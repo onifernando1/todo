@@ -31,7 +31,7 @@ const ToDo = function (title, description, dueDate, priority) {
     let parentProject = findProject(todoProjectId);
     parentProject.toDoArray.push(newTodo);
     ViewProject.viewToDos(parentProject);
-    deleteButtonListener();
+    deleteButtonListener(parentProject);
   };
 
   const findProject = function (todoProjectId) {
@@ -44,12 +44,24 @@ const ToDo = function (title, description, dueDate, priority) {
     return foundProject;
   };
 
-  const deleteTodo = function (id) {
-    console.log(id);
-    console.log("wee");
+  const deleteTodo = function (id, parentProject) {
+    let currentTodo = "";
+    parentProject.toDoArray.forEach((todo) => {
+      if (todo.id == id) {
+        console.log("before length");
+        console.log(parentProject.toDoArray.length);
+        currentTodo = todo;
+        parentProject.toDoArray = parentProject.toDoArray.filter(
+          (item) => item !== currentTodo
+        );
+        console.log("after length ");
+        console.log(parentProject.toDoArray.length);
+      }
+    });
+    ViewProject.viewToDos(parentProject);
   };
 
-  const deleteButtonListener = function () {
+  const deleteButtonListener = function (parentProject) {
     const deleteButtons = document.getElementsByClassName("delete");
 
     for (let i = 0; i < deleteButtons.length; i++) {
@@ -57,7 +69,7 @@ const ToDo = function (title, description, dueDate, priority) {
         let buttonclass = deleteButtons[i].className;
         buttonclass = buttonclass.split("");
         id = buttonclass[0];
-        deleteTodo(id);
+        deleteTodo(id, parentProject);
       });
     }
   };
