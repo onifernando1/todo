@@ -50,16 +50,20 @@ const DomStuff = (() => {
 
   const _removeAllProjects = () => {
     const projectsContainer = document.getElementById("projects-container");
-    while (projectsContainer.firstChild) {
-      projectsContainer.removeChild(projectsContainer.lastChild);
+    if (projectsContainer != null) {
+      while (projectsContainer.firstChild) {
+        projectsContainer.removeChild(projectsContainer.lastChild);
+      }
     }
   };
 
   const _createProjectContainer = () => {
+    // const content = document.getElementById("content");
     const projectsContainer = document.getElementById("projects-container");
     const createProjectsDiv = document.createElement("div");
     createProjectsDiv.id = "inner-projects-container";
     projectsContainer.appendChild(createProjectsDiv);
+    // content.appendChild(projectsContainer);
   };
 
   const _removeAllContent = function () {
@@ -69,7 +73,16 @@ const DomStuff = (() => {
     }
   };
 
+  const createProjectsContainer = function () {
+    const content = document.getElementById("content");
+    const projectsContainer = document.createElement("div");
+    projectsContainer.id = "projects-container";
+    content.appendChild(projectsContainer);
+  };
+
   const displayAllProjects = (projectArray) => {
+    const projectsContainer = document.createElement("div");
+    console.log(projectsContainer);
     _removeAllProjects();
     _createProjectContainer();
     _displayIndividualProject(projectArray);
@@ -106,7 +119,12 @@ const DomStuff = (() => {
     viewProjectContainer.appendChild(title);
   };
 
-  return { displaytoDo, displayAllProjects, viewProject };
+  return {
+    displaytoDo,
+    displayAllProjects,
+    viewProject,
+    createProjectsContainer,
+  };
 })();
 
 export { DomStuff };
