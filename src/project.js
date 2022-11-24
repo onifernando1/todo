@@ -19,6 +19,10 @@ const Project = (title) => {
     ProjectManager.showAllProjects();
   };
 
+  const createNewProjectForm = function () {
+    DomStuff.createForm();
+  };
+
   const createFormListener = function () {
     const newProjectForm = document.getElementById("new-project-form");
     newProjectForm.addEventListener("submit", (event) => {

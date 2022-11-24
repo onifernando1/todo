@@ -88,6 +88,38 @@ const DomStuff = (() => {
     _displayIndividualProject(projectArray);
   };
 
+  const createProjectForm = function () {
+    //create form  container
+    const content = document.getElementById("content");
+    const newProjectFormContainer = document.createElement("div");
+    newProjectFormContainer.className = "new-project-form-container";
+    content.appendChild(newProjectFormContainer);
+
+    //create form and id
+    const projectForm = document.createElement("form");
+    projectForm.id = "new-project-form";
+    const projectTitle = document.createElement("input");
+    projectTitle.type = "text";
+    projectTitle.id = "title";
+    projectTitle.name = "title";
+
+    const projectTitleLabel = document.createElement("label");
+    projectTitleLabel.htmlFor = "title";
+    projectTitleLabel.innerText = "New Project Title";
+
+    const submit = document.createElement("input");
+    submit.type = "submit";
+    submit.id = "submit";
+    submit.name = "submit";
+    // submit.innerText = "Create Project";
+
+    projectForm.appendChild(projectTitleLabel);
+    projectForm.appendChild(projectTitle);
+    projectForm.appendChild(submit);
+
+    newProjectFormContainer.appendChild(projectForm);
+  };
+
   const displaytoDo = (toDo) => {
     const content = document.getElementById("content");
     const newToDoDiv = document.createElement("div");
@@ -124,6 +156,7 @@ const DomStuff = (() => {
     displayAllProjects,
     viewProject,
     createProjectsContainer,
+    createProjectForm,
   };
 })();
 
