@@ -32,6 +32,11 @@ const ToDo = function (title, description, dueDate, priority) {
     parentProject.toDoArray.push(newTodo);
     ViewProject.viewToDos(parentProject);
     deleteButtonListener(parentProject);
+    populateStorage(parentProject);
+  };
+
+  const populateStorage = function (parentProject) {
+    localStorage.setItem("parentProject", JSON.stringify(parentProject));
   };
 
   const findProject = function (todoProjectId) {
