@@ -1,4 +1,5 @@
 import { DomStuff } from "./dom";
+import { View } from "./view";
 
 const ProjectManager = (() => {
   const projectArray = [];
@@ -7,9 +8,29 @@ const ProjectManager = (() => {
 
   const showAllProjects = () => {
     DomStuff.displayAllProjects(projectArray);
+    ProjectManager.viewProjectListener();
   };
 
-  return { showAllProjects, projectArray, projectId };
+  const viewProjectListener = function () {
+    projectArray.forEach((project) => {
+      const viewButton = document.getElementsByClassName(
+        `view-project-${project.id}`
+      )[0];
+      viewButton.addEventListener("click", () => {
+        console.log("calledclick");
+        View.viewProject(project);
+        console.log("clicked");
+      });
+    });
+  };
+
+  return {
+    showAllProjects,
+    projectArray,
+    projectId,
+    toDoId,
+    viewProjectListener,
+  };
 })();
 
 export { ProjectManager };

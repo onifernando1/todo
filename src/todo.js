@@ -14,6 +14,8 @@ const ToDo = function (title, description, dueDate, priority) {
     toDostatus = completet;
   };
 
+  const increaseToDoId = function () {};
+
   return {
     title,
     description,

@@ -8,3 +8,4 @@ project.toDoArray.push(toDo);
 project.showToDos();
 ProjectManager.showAllProjects();
 project.createFormListener();
+ProjectManager.viewProjectListener();

@@ -31,8 +31,6 @@ const Project = (title) => {
     ProjectManager.projectId += 1;
   };
 
-  const viewFormListener = function () {};
-
   increaseProjectId();
 
   return { title, toDoArray, showToDos, createFormListener, id };

@@ -37,8 +37,10 @@ const DomStuff = (() => {
       const projectTitle = document.createElement("div");
       projectTitle.className = "project-title";
       projectTitle.innerText = project.title;
+
+      // add view project button
       const viewProject = document.createElement("button");
-      viewProject.className = "view-project";
+      viewProject.className = `view-project-${project.id}`;
       viewProject.textContent = "View project";
       newProjectContainer.appendChild(viewProject);
       newProjectContainer.appendChild(projectTitle);
