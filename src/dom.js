@@ -62,6 +62,13 @@ const DomStuff = (() => {
     projectsContainer.appendChild(createProjectsDiv);
   };
 
+  const _removeAllContent = function () {
+    const content = document.getElementById("content");
+    while (content.firstChild) {
+      content.removeChild(content.lastChild);
+    }
+  };
+
   const displayAllProjects = (projectArray) => {
     _removeAllProjects();
     _createProjectContainer();
@@ -83,7 +90,23 @@ const DomStuff = (() => {
     _displayPriority(toDo, newToDoDiv);
   };
 
-  return { displaytoDo, displayAllProjects };
+  const viewProject = function (project) {
+    _removeAllContent();
+
+    // generate viewprojectcontainer
+    const viewProjectContainer = document.createElement("div");
+    viewProjectContainer.className = "view-project-container";
+    content.appendChild(viewProjectContainer);
+
+    // add project title
+
+    const title = document.createElement("div");
+    title.className = "view-project-title";
+    title.innerText = project.title;
+    viewProjectContainer.appendChild(title);
+  };
+
+  return { displaytoDo, displayAllProjects, viewProject };
 })();
 
 export { DomStuff };

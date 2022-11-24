@@ -17,9 +17,7 @@ const ProjectManager = (() => {
         `view-project-${project.id}`
       )[0];
       viewButton.addEventListener("click", () => {
-        console.log("calledclick");
-        ViewProject.view(project);
-        console.log("clicked");
+        ViewProject.viewTitle(project);
       });
     });
   };

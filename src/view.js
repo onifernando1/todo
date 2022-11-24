@@ -1,10 +1,13 @@
+import { DomStuff } from "./dom";
+
 const ViewProject = ((project) => {
-  const view = function (project) {
-    const ptitle = project.title;
-    console.log(ptitle);
+  const viewTitle = function (project) {
+    DomStuff.viewProject(project);
   };
 
-  return { view };
+  const viewToDos = function () {};
+
+  return { viewTitle };
 })();
 
 export { ViewProject };
