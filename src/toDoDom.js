@@ -86,6 +86,14 @@ const ToDoDom = (() => {
     }
   };
 
+  const _deleteToDoButton = function (todo) {
+    const todoContainer = document.getElementsByClassName("todo-container")[0];
+    const deleteButton = document.createElement("button");
+    deleteButton.className = `${todo.id}`;
+    deleteButton.innerHTML = "delete";
+    todoContainer.appendChild(deleteButton);
+  };
+
   const _showTodos = function (todoArray) {
     const todoContainer = document.getElementsByClassName("todo-container")[0];
 
@@ -97,6 +105,8 @@ const ToDoDom = (() => {
       _displayDueDate(todo, todoContainer);
 
       _displayPriority(todo, todoContainer);
+
+      _deleteToDoButton(todo);
     });
   };
 
