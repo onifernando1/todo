@@ -87,9 +87,11 @@ const ToDoDom = (() => {
   };
 
   const _deleteToDoButton = function (todo) {
+    console.log(todo);
+    console.log("above");
     const todoContainer = document.getElementsByClassName("todo-container")[0];
     const deleteButton = document.createElement("button");
-    deleteButton.className = `${todo.id}`;
+    deleteButton.className = `${todo.id} delete`;
     deleteButton.innerHTML = "delete";
     todoContainer.appendChild(deleteButton);
   };
@@ -111,7 +113,6 @@ const ToDoDom = (() => {
   };
 
   const showAllTodos = function (todoArray) {
-    console.log("called");
     _deleteTodoContainer();
     _createTodoContainer();
     _showTodos(todoArray);

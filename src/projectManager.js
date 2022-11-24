@@ -26,7 +26,6 @@ const ProjectManager = (() => {
         todo.todoListener();
         // ToDoDom.showAllTodos(project);
         project.showToDos();
-        ViewProject.viewToDos(project);
       });
     });
   };

@@ -3,8 +3,8 @@ import { ViewProject } from "./view";
 
 const ToDo = function (title, description, dueDate, priority) {
   const toDoStatus = "incomplete";
-  let toDoid = 0;
   const projectId = "";
+  let id = "";
 
   const create = (title, description, dueDate, priority) => {
     newToDo = toDo(title, description, dueDate, priority);
@@ -15,7 +15,7 @@ const ToDo = function (title, description, dueDate, priority) {
   };
 
   const changeTDS = () => {
-    toDostatus = completet;
+    toDostatus = complete;
   };
 
   const createTodo = function () {
@@ -23,14 +23,15 @@ const ToDo = function (title, description, dueDate, priority) {
     const todoDescription = document.getElementById("description").value;
     const todoDueDate = document.getElementById("dueDate").value;
     const todoPriority = document.getElementById("priority").value;
-    const todoProjectId = document.getElementById("projectId").value;
+    const todoProjectId = Number(document.getElementById("projectId").value);
     const newTodo = ToDo(todoTitle, todoDescription, todoDueDate, todoPriority);
     newTodo.projectId = todoProjectId;
-    newTodo.id = toDoid;
+    newTodo.id = increaseToDoId();
+    // newTodo.id = ProjectManager.toDoid;
     let parentProject = findProject(todoProjectId);
     parentProject.toDoArray.push(newTodo);
-    console.log(parentProject);
     ViewProject.viewToDos(parentProject);
+    deleteButtonListener();
   };
 
   const findProject = function (todoProjectId) {
@@ -43,6 +44,20 @@ const ToDo = function (title, description, dueDate, priority) {
     return foundProject;
   };
 
+  const deleteTodo = function (id) {
+    console.log(id);
+  };
+
+  const deleteButtonListener = function () {
+    const deleteButtons = document.getElementsByClassName("delete");
+
+    for (let i = 0; i < deleteButtons.length; i++) {
+      deleteButtons[i].addEventListener("click", () => {
+        deleteTodo(id);
+      });
+    }
+  };
+
   const todoListener = function () {
     const todoForm = document.getElementById("new-todo-form");
     todoForm.addEventListener("submit", (event) => {
@@ -52,10 +67,10 @@ const ToDo = function (title, description, dueDate, priority) {
   };
 
   const increaseToDoId = function () {
-    toDoid += 1;
+    ProjectManager.toDoId += 1;
+    id = ProjectManager.toDoId;
+    return id;
   };
-
-  increaseToDoId();
 
   return {
     title,
@@ -66,9 +81,9 @@ const ToDo = function (title, description, dueDate, priority) {
     create,
     change,
     toDoStatus,
-    toDoid,
     projectId,
     todoListener,
+    id,
   };
 };
 

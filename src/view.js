@@ -8,11 +8,8 @@ const ViewProject = (() => {
 
   const viewToDos = function (project) {
     let array = project.toDoArray;
-    console.log("vtd outer called");
-    console.log(array);
     if (array != undefined) {
       ToDoDom.showAllTodos(array);
-      console.log("tododom called");
     }
   };
 
