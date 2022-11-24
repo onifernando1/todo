@@ -2,7 +2,7 @@ import { ProjectManager } from "./projectManager";
 
 const ToDo = function (title, description, dueDate, priority) {
   const toDoStatus = "incomplete";
-  const toDoid = "";
+  const toDoid = 0;
   const projectId = "";
 
   const create = (title, description, dueDate, priority) => {
@@ -25,6 +25,7 @@ const ToDo = function (title, description, dueDate, priority) {
     const todoProjectId = document.getElementById("projectId").value;
     const newTodo = ToDo(todoTitle, todoDescription, todoDueDate, todoPriority);
     newTodo.projectId = todoProjectId;
+    newTodo.id = toDoid;
     const parentProject = findProject(todoProjectId);
     parentProject.toDoArray.push(newTodo);
     console.log(parentProject);
@@ -50,7 +51,11 @@ const ToDo = function (title, description, dueDate, priority) {
     });
   };
 
-  const increaseToDoId = function () {};
+  const increaseToDoId = function () {
+    toDoid += 1;
+  };
+
+  increaseToDoId();
 
   return {
     title,
