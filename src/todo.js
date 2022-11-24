@@ -46,6 +46,7 @@ const ToDo = function (title, description, dueDate, priority) {
 
   const deleteTodo = function (id) {
     console.log(id);
+    console.log("wee");
   };
 
   const deleteButtonListener = function () {
@@ -53,6 +54,9 @@ const ToDo = function (title, description, dueDate, priority) {
 
     for (let i = 0; i < deleteButtons.length; i++) {
       deleteButtons[i].addEventListener("click", () => {
+        let buttonclass = deleteButtons[i].className;
+        buttonclass = buttonclass.split("");
+        id = buttonclass[0];
         deleteTodo(id);
       });
     }
